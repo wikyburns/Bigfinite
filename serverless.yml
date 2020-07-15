@@ -1,0 +1,15 @@
+service: bigfinite-app
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-3
+  memorySize: 128
+functions:
+  app:
+    handler: dist/server/Server.handler
+    events: 
+      - http: 
+          path: /screen
+          method: GET
+          cors: true
